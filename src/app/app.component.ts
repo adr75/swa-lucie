@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
-  template: `<div>Hello {{value}}</div>`,
+  template: `<div>Coucou, c'est Lucie.</div>`,
 })
 export class AppComponent {
   value = 'World';
