@@ -11,7 +11,7 @@ export class ResponseComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.createBalloons(100);
+    this.createBalloons(6);
   }
 
 
@@ -27,8 +27,8 @@ export class ResponseComponent implements OnInit {
     var ml = this.random(50);
     var dur = this.random(25)+5;
     return `
-    background-color: rgba(${r},${g},${b},0.5);
-    color: rgba(${r},${g},${b},0.7); 
+    background-color: rgba(${r},${g},${b},0.6);
+    color: rgba(${r},${g},${b},0.6); 
     box-shadow: inset -7px -3px 10px rgba(${r-10},${g-10},${b-10},0.7);
     margin: ${mt}px 0 0 ${ml}px;
     animation: float ${dur}s ease-in infinite

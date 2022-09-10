@@ -1,15 +1,49 @@
-body {
+body, html{
     margin: 0;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    
+    padding:0;
+    background-color:rgb(227, 145, 233);
   }
 
 
   .big-message {
-    font-size: 25em;
-    color:cadetblue;
+    font-size: 3em;
+    color:rgb(0, 124, 233);
     text-align: center;
-    width: 100%;
+    overflow: auto;
+    height: 100vh
+  }
+
+  .answer{
+    color:rgb(255, 255, 167)
+  }
+
+  .answer input{
+    background-color: white;
+    border: none;
+    /* border-bottom: 2px solid rgb(255, 255, 167); */
+    color: rgb(255, 255, 53);
+    font-size: 3rem;
+    font-weight: bold;
+    width: 300px;
+    margin-top: 50px;
+    padding-left: 7px
+  }
+
+  .answer input:focus{
+    border:none;
+    outline: none;
+
+  }
+
+
+  .answer button {
+    width: 300px;
+    margin: 30px 5px;
+    font-size: 2rem;
+    border-radius: 45px;
+    padding: 20px;
+    border:none;
   }
  
   
