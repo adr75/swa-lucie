@@ -7,11 +7,14 @@ body, html{
 
 
   .big-message {
-    font-size: 3em;
+    font-size: 1.5em;
+    width:100%;
     color:rgb(0, 124, 233);
     text-align: center;
     overflow: auto;
-    height: 100vh
+    height: 100vh;
+    z-index: 10;
+    padding: 5px;
   }
 
   .answer{
@@ -23,9 +26,9 @@ body, html{
     border: none;
     /* border-bottom: 2px solid rgb(255, 255, 167); */
     color: rgb(255, 255, 53);
-    font-size: 3rem;
+    font-size: 1.5rem;
     font-weight: bold;
-    width: 300px;
+    width: 150px;
     margin-top: 50px;
     padding-left: 7px
   }
@@ -40,12 +43,17 @@ body, html{
   .answer button {
     width: 300px;
     margin: 5px;
-    font-size: 2rem;
+    font-size: 1.5rem;
     border-radius: 45px;
-    padding: 20px;
+    padding: 15px;
     border:none;
   }
  
   .myname{
     margin-bottom: 30px;
+  }
+
+
+  .lucie{
+    width: 150px;
   }
