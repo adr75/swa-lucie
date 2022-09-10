@@ -39,11 +39,13 @@ body, html{
 
   .answer button {
     width: 300px;
-    margin: 30px 5px;
+    margin: 5px;
     font-size: 2rem;
     border-radius: 45px;
     padding: 20px;
     border:none;
   }
  
-  
+  .myname{
+    margin-bottom: 30px;
+  }
