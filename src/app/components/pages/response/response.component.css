@@ -8,8 +8,8 @@
   }
   
   .balloon {
-    height: 125px;
-    width: 105px;
+    height: 145px;
+    width: 125px;
     border-radius: 75% 75% 70% 70%;
     position: relative;
   }

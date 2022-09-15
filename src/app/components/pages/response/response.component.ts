@@ -15,7 +15,7 @@ export class ResponseComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.createBalloons(6);
+    this.createBalloons(44);
   }
 
 
@@ -29,7 +29,7 @@ export class ResponseComponent implements OnInit {
     var b = this.random(255);
     var mt = this.random(200);
     var ml = this.random(50);
-    var dur = this.random(25)+5;
+    var dur = this.random(100)+5;
     return `
     background-color: rgba(${r},${g},${b},0.6);
     color: rgba(${r},${g},${b},0.6); 
@@ -46,7 +46,7 @@ export class ResponseComponent implements OnInit {
       balloon.className = "balloon";
       balloon.style.cssText = this.getRandomStyles();
 
-      balloon.innerHTML = '<img class="lucie" src="/assets/lucie.png" alt="Lucie">';
+      balloon.innerHTML = '<div style="text-align:center"><img style="transform:translateY(-16px);width: 70px;" class="lucie" src="/assets/robot.png" alt="Lucie"></div>';
       balloonContainer.append(balloon);
 
 
@@ -61,7 +61,10 @@ export class ResponseComponent implements OnInit {
       alert("Indique ton nom s'il te plait!");
       return;
     }
-     this.http.get('/api/BirthdayRsvp?resp=' + resp + "&nom=" + this.nom)
+
+    const backend = "";
+
+     this.http.get(backend + '/api/BirthdayRsvp?resp=' + resp + "&nom=" + this.nom)
        .subscribe((resp: any) => {let ok = resp.text;}, 
        (err: any) => { alert("Oops! il y a eu un problème :(\nEnvoie ta réponse par SMS/WhatsApp à Camille au 06 72 20 76 02! ") });
      this.thanks = true;
