@@ -7,6 +7,7 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using Microsoft.Azure.Cosmos;
 
 namespace Lucie.Function
 {
@@ -19,17 +20,22 @@ namespace Lucie.Function
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
 
-            string name = req.Query["name"];
+            bool resp =  Convert.ToBoolean(req.Query["resp"]);
+            string nom =  req.Query["nom"];
 
-            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            dynamic data = JsonConvert.DeserializeObject(requestBody);
-            name = name ?? data?.name;
+            var cosmosClient = new CosmosClient("AccountEndpoint=https://cdblucie.documents.azure.com:443/;AccountKey=e7DCz4XShW1aJhZZ0QZflbblcEeTCN5kY5Q1ub6McLMUw27i2CpP0ZX1WKdpjTRLZEL37R73D2m7MQpy0cErGQ==;");
 
-            string responseMessage = string.IsNullOrEmpty(name)
-                ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
-                : $"Hello, {name}. This HTTP triggered function executed successfully.";
+            var db = cosmosClient.GetDatabase("Birthday");
+            var container = db.GetContainer("Responses");
 
-            return new OkObjectResult(new { text = responseMessage } );
+            await container.CreateItemAsync(new BirthdayResponse(){
+                Vient = resp,
+                Nom = nom                
+            });
+
+             log.LogInformation("Res:" + resp);
+
+            return new OkObjectResult(new { text = resp } );
         }
     }
 }

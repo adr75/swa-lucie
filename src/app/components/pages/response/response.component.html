@@ -1,24 +1,26 @@
 <div id="balloon-container">
 
     <div class="big-message">
-    
+
         <div>
-        <img class="lucie" src="/assets/lucie.png" alt="Lucie" >
-    </div>
+            <img class="lucie" src="/assets/lucie.png" alt="Lucie">
+        </div>
         Coucou c'est Lucie! Je fête mon anniversaire le 24 septembre 2022 chez moi, de 15h30 à 17h30. Voici mon adresse
         :
         <br />52 rue de la Bidassoa
         <br />Bâtiment D, code 7265A, 3eme droite
 
-        <br />Indique ici si tu peux venir ou non :
+        <div *ngIf="!thanks">
+            <br />Indique ici si tu peux venir ou non :
 
-        <div class="answer">
-            
-            <div class="myname">Je m'appelle <input type="text" /></div>
-<button>Je viens :)</button> <button>Je ne viens pas :(</button>
+            <div class="answer">
+                <div class="myname">Je m'appelle <input (focus)="nomFocus()" [(ngModel)]="nom" type="text" /></div>
+                <button type="button" (click)="jeViens(true)">Je viens :)</button>
+                <button type="button" (click)="jeViens(false)">Je ne viens pas :(</button>
+            </div>
+
         </div>
-      
-
+        <app-thanks *ngIf="thanks"></app-thanks>
     </div>
 
 </div>

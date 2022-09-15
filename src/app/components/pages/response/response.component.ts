@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
@@ -7,8 +8,11 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class ResponseComponent implements OnInit {
+  thanks = false;
+  nom=""
+  constructor(private http: HttpClient) {
 
-  constructor() { }
+  }
 
   ngOnInit(): void {
     this.createBalloons(6);
@@ -44,5 +48,27 @@ export class ResponseComponent implements OnInit {
       balloonContainer.append(balloon);
     }
   }
+
+  jeViens(resp: boolean) {
+    this.nom = this.nom.trim();
+    if(this.nom === "") {
+      alert("Indique ton nom s'il te plait!");
+      return;
+    }
+     this.http.get('/api/BirthdayRsvp?resp=' + resp)
+       .subscribe((resp: any) => {let ok = resp.text;}, 
+       (err: any) => { alert("Oops! il y a eu un problème :(\nEnvoie ta réponse par SMS/WhatsApp à Camille au 06 72 20 76 02! ") });
+     this.thanks = true;
+    }
+
+    nomFocus(){
+      document.getElementsByClassName("big-message")[0].scrollTo({
+          top: document.body.scrollHeight,
+          left: 0,
+          behavior: 'smooth'
+        });
+
+      
+    }
 
 }

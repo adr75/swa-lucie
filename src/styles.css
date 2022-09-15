@@ -1,3 +1,7 @@
+html { 
+  scroll-behavior: smooth; 
+}
+
 body, html{
     margin: 0;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -56,4 +60,11 @@ body, html{
 
   .lucie{
     width: 150px;
+  }
+
+
+
+
+  button{
+    cursor: pointer;
   }
