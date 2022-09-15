@@ -29,8 +29,8 @@ namespace Lucie.Function
             var container = db.GetContainer("Responses");
 
             await container.CreateItemAsync(new BirthdayResponse(){
-                Vient = resp,
-                Nom = nom                
+                vient = resp,
+                nom = nom                
             });
 
              log.LogInformation("Res:" + resp);
