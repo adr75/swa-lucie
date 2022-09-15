@@ -45,7 +45,13 @@ export class ResponseComponent implements OnInit {
       var balloon = document.createElement("div");
       balloon.className = "balloon";
       balloon.style.cssText = this.getRandomStyles();
+
+      balloon.innerHTML = '<img class="lucie" src="/assets/lucie.png" alt="Lucie">';
       balloonContainer.append(balloon);
+
+
+
+
     }
   }
 
@@ -55,7 +61,7 @@ export class ResponseComponent implements OnInit {
       alert("Indique ton nom s'il te plait!");
       return;
     }
-     this.http.get('/api/BirthdayRsvp?resp=' + resp)
+     this.http.get('/api/BirthdayRsvp?resp=' + resp + "&nom=" + this.nom)
        .subscribe((resp: any) => {let ok = resp.text;}, 
        (err: any) => { alert("Oops! il y a eu un problème :(\nEnvoie ta réponse par SMS/WhatsApp à Camille au 06 72 20 76 02! ") });
      this.thanks = true;
