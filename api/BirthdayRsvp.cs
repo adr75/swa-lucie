@@ -23,7 +23,7 @@ namespace Lucie.Function
             bool resp =  Convert.ToBoolean(req.Query["resp"]);
             string nom =  req.Query["nom"];
 
-            var cosmosClient = new CosmosClient("AccountEndpoint=https://cdblucie.documents.azure.com:443/;AccountKey=e7DCz4XShW1aJhZZ0QZflbblcEeTCN5kY5Q1ub6McLMUw27i2CpP0ZX1WKdpjTRLZEL37R73D2m7MQpy0cErGQ==;");
+            var cosmosClient = new CosmosClient("");
 
             var db = cosmosClient.GetDatabase("Birthday");
             var container = db.GetContainer("Responses");
