@@ -5,25 +5,8 @@
         <div>
             <img class="lucie" src="/assets/disco.png" alt="Lucie">
         </div>
-        Coucou c'est Lucie!<br>
-        Je fête mon anniversaire le 24 septembre 2022 chez moi, de 15h30 à 17h30.
-        <br /><br />Voici mon adresse :
-        <div class="address">
-            52 rue de la Bidassoa
-            <br />Bâtiment D, code 7265A, 3eme droite
-        </div>
-
-        <div *ngIf="!thanks">
-            <br />Indique ici si tu peux venir ou non :
-
-            <div class="answer">
-                <div class="myname">Je m'appelle <input (focus)="nomFocus()" [(ngModel)]="nom" type="text" /></div>
-                <button type="button" (click)="jeViens(true)">Je viens :)</button>
-                <button type="button" (click)="jeViens(false)">Je ne viens pas :(</button>
-            </div>
-
-        </div>
-        <app-thanks *ngIf="thanks"></app-thanks>
+        Coucou c'est Lucie!</br>
+        
     </div>
 
 </div>
